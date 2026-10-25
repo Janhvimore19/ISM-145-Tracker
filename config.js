@@ -3,7 +3,7 @@ window.TRACKER_CONFIG = {
   activeHost: "primary",
   primary: {
     name: "Primary TL Host",
-    url: "http://PRIMARY-HOST-IP:8080"
+    url: "http://192.168.1.9:8080"
   },
   secondary: {
     name: "Secondary TL Host",
@@ -13,6 +13,6 @@ window.TRACKER_CONFIG = {
     name: "Emergency Host",
     url: "http://EMERGENCY-HOST-IP:8080"
   },
-  updatedBy: "Setup pending",
-  updatedAt: "Not configured"
+  updatedBy: "Janhvi More",
+  updatedAt: "25 Oct 2026, 9:50 PM"
 };
