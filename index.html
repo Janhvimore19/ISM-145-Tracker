@@ -1,51 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>ISM 145 Leave Tracker</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ISM 145 Leave Tracker</title>
 <style>
-:root{--navy:#17365d;--blue:#2f75b5;--pale:#eef5fb;--green:#087f5b;--text:#1f2937;--muted:#667085;--line:#dbe4ee;--white:#fff;--warn:#9a6700}
-*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Aptos,Arial,sans-serif;background:linear-gradient(145deg,#e8f1f8,#f8fafc 58%,#eaf4f0);color:var(--text);min-height:100vh;display:grid;place-items:center;padding:24px}.shell{width:min(760px,100%)}.brand{display:flex;align-items:center;gap:14px;margin-bottom:18px}.mark{width:54px;height:54px;border-radius:16px;background:linear-gradient(145deg,var(--navy),var(--blue));display:grid;place-items:center;color:white;font-weight:800;font-size:18px;box-shadow:0 12px 30px #17365d33}.brand h1{margin:0;color:var(--navy);font-size:clamp(23px,4vw,34px)}.brand p{margin:4px 0 0;color:var(--muted)}.card{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,5vw,42px);box-shadow:0 22px 65px #17365d1c}.status{display:flex;align-items:center;gap:9px;color:var(--green);font-weight:700;margin-bottom:22px}.dot{width:10px;height:10px;border-radius:50%;background:#12b886;box-shadow:0 0 0 5px #12b8861f}.label{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}.host{font-size:24px;font-weight:750;color:var(--navy);margin:5px 0 5px}.address{font-family:Consolas,monospace;padding:11px 13px;border-radius:10px;background:var(--pale);overflow-wrap:anywhere;color:#24527a}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{appearance:none;border:0;border-radius:11px;padding:13px 18px;font:inherit;font-weight:700;cursor:pointer}.primary{background:var(--blue);color:white;box-shadow:0 8px 20px #2f75b540}.secondary{background:#edf2f7;color:var(--navy);border:1px solid var(--line)}.btn:focus-visible{outline:3px solid #90cdf4;outline-offset:3px}.note{margin-top:24px;padding:14px 16px;border-left:4px solid #f0ad4e;background:#fff8e6;border-radius:8px;font-size:14px;color:#6d5100}.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:25px;padding-top:16px;color:var(--muted);font-size:13px}.error{color:#b42318;background:#fff1f0;border:1px solid #ffc9c5;border-radius:10px;padding:12px;margin-top:16px;display:none}@media(max-width:520px){.actions .btn{width:100%}}
-</style>
-</head>
-<body>
-<main class="shell">
-  <header class="brand"><div class="mark">ISM</div><div><h1>ISM 145 Leave Tracker</h1><p>Team access launcher</p></div></header>
-  <section class="card">
-    <div class="status"><span class="dot"></span><span>Active host configured</span></div>
-    <div class="label">Current active server</div>
-    <div class="host" id="hostName">Loading...</div>
-    <div class="address" id="hostUrl">Please wait</div>
-    <div class="actions">
-      <button class="btn primary" id="openBtn" type="button">Open Leave Tracker</button>
-      <button class="btn secondary" id="copyBtn" type="button">Copy direct link</button>
-    </div>
-    <div class="error" id="errorBox" role="alert"></div>
-    <div class="note"><b>Office access:</b> The tracker opens only when the selected host laptop is on, the Python server is running, and the user’s device can reach the host on the office network.</div>
-    <div class="meta"><span id="updatedBy"></span><span id="updatedAt"></span></div>
-  </section>
-</main>
-<script src="config.js"></script>
-<script>
-(function(){
-  const c=window.TRACKER_CONFIG||{};
-  const key=c.activeHost;
-  const host=c[key];
-  const error=document.getElementById('errorBox');
-  function showError(message){error.textContent=message;error.style.display='block'}
-  if(!host||!host.url){showError('The active host is not configured. Please contact a TL.');return}
-  document.getElementById('hostName').textContent=host.name||key;
-  document.getElementById('hostUrl').textContent=host.url;
-  document.getElementById('updatedBy').textContent='Updated by: '+(c.updatedBy||'Not recorded');
-  document.getElementById('updatedAt').textContent='Updated: '+(c.updatedAt||'Not recorded');
-  document.getElementById('openBtn').addEventListener('click',()=>{window.location.href=host.url});
-  document.getElementById('copyBtn').addEventListener('click',async()=>{
-    try{await navigator.clipboard.writeText(host.url);document.getElementById('copyBtn').textContent='Link copied'}
-    catch(e){showError('Copy was blocked. Select and copy the direct link shown above.')}
-  });
-})();
-</script>
-</body>
-</html>
+:root{--navy:#16365f;--blue:#2878bd;--bg:#f4f7fb;--card:#fff;--muted:#667085;--line:#dbe3ed;--green:#14805e;--red:#b42318;--amber:#a15c00}*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Aptos,Arial,sans-serif;background:var(--bg);color:#172033}button,input,select,textarea{font:inherit}.top{background:linear-gradient(120deg,var(--navy),#23689b);color:#fff;padding:18px 5vw;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.top h1{margin:0;font-size:23px}.top small{opacity:.83}.container{max-width:1180px;margin:auto;padding:25px 18px 50px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 7px 25px #17365d0c}.auth{max-width:470px;margin:55px auto}.auth h2{color:var(--navy);margin-top:0}.field{display:grid;gap:6px;margin:13px 0}.field label{font-weight:650;font-size:14px}.field input,.field select,.field textarea{border:1px solid #c8d2df;border-radius:9px;padding:11px;background:#fff}.btn{border:0;border-radius:9px;padding:10px 15px;font-weight:700;cursor:pointer}.primary{background:var(--blue);color:white}.ghost{background:#edf3f8;color:var(--navy)}.danger{background:#fff0ef;color:var(--red)}.success{background:#e5f6ef;color:var(--green)}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.msg{margin-top:13px;padding:10px;border-radius:8px;display:none}.msg.err{display:block;background:#fff0ef;color:var(--red)}.msg.ok{display:block;background:#e6f6ef;color:var(--green)}.hide{display:none!important}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.tab.active{background:var(--navy);color:white}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.metric strong{display:block;font-size:29px;color:var(--navy)}.metric span{color:var(--muted);font-size:13px}.section{margin-top:18px}.two{display:grid;grid-template-columns:1fr 1.5fr;gap:18px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:11px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--navy);font-size:13px;background:#f5f8fb}.pill{display:inline-block;padding:4px 8px;border-radius:99px;font-size:12px;font-weight:700}.pending{background:#fff4dc;color:var(--amber)}.approved{background:#e6f6ef;color:var(--green)}.rejected{background:#fff0ef;color:var(--red)}.muted{color:var(--muted)}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{min-height:76px;border:1px solid var(--line);border-radius:8px;padding:6px;background:#fff}.day b{font-size:12px}.event{font-size:10px;margin-top:4px;padding:3px;background:#e7f1fb;border-radius:4px;overflow:hidden}.header-actions{display:flex;gap:8px}.setup{background:#fff8e6;border:1px solid #f6d58a;color:#765000;padding:14px;border-radius:10px;margin-bottom:16px}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}@media(max-width:480px){.grid{grid-template-columns:1fr}.calendar{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header class="top"><div><h1>ISM 145 Leave Tracker</h1><small>Cloud workspace</small></div><div class="header-actions"><span id="who"></span><button id="signout" class="btn ghost hide">Sign out</button></div></header>
+<main class="container">
+<section id="auth" class="card auth"><h2>Sign in to the tracker</h2><p class="muted">Use your registered work email and a separate tracker password.</p><div class="field"><label>Work email</label><input id="email" type="email" autocomplete="email"></div><div class="field"><label>Tracker password</label><input id="password" type="password" minlength="8" autocomplete="current-password"></div><div class="row"><button id="login" class="btn primary">Sign in</button><button id="signup" class="btn ghost">Create account</button><button id="forgot" class="btn ghost">Forgot password</button></div><div id="authMsg" class="msg"></div></section>
+<section id="app" class="hide"><div id="setupWarning" class="setup hide">Supabase configuration is missing. Add your Project URL and publishable key in <b>supabase-config.js</b>.</div><div class="tabs"><button class="btn tab active" data-view="dashboard">Dashboard</button><button class="btn tab" data-view="request">New Request</button><button class="btn tab" data-view="history">Request History</button><button class="btn tab" data-view="calendar">Calendar</button><button id="teamTab" class="btn tab hide" data-view="team">TL Approvals</button></div>
+<div id="dashboard" class="view"><div class="grid"><div class="card metric"><strong id="casual">0</strong><span>Casual Leave Balance</span></div><div class="card metric"><strong id="earned">0</strong><span>Earned Leave Balance</span></div><div class="card metric"><strong id="pending">0</strong><span>Pending Requests</span></div><div class="card metric"><strong id="approved">0</strong><span>Approved Requests</span></div></div><div class="card section"><h3>Recent requests</h3><div id="recent" class="table-wrap"></div></div></div>
+<div id="request" class="view hide"><div class="card"><h3>Raise leave request</h3><div class="two"><div><div class="field"><label>Leave type</label><select id="leaveType"><option>Casual Leave</option><option>Earned Leave</option><option>Comp Off</option><option>Maternity Leave</option><option>WFH</option><option>WFA</option></select></div><div class="field"><label>Start date</label><input id="startDate" type="date"></div><div class="field"><label>End date</label><input id="endDate" type="date"></div><div class="field"><label>Reason / note</label><textarea id="reason" rows="4"></textarea></div><button id="submitRequest" class="btn primary">Submit request</button><div id="requestMsg" class="msg"></div></div><div><p class="muted">Request will be immediately visible to both TL accounts. Leave balance changes only after approval.</p></div></div></div></div>
+<div id="history" class="view hide"><div class="card"><h3>Request history</h3><div id="historyTable" class="table-wrap"></div></div></div>
+<div id="calendar" class="view hide"><div class="card"><div class="row"><button id="prevMonth" class="btn ghost">Previous</button><h3 id="monthTitle"></h3><button id="nextMonth" class="btn ghost">Next</button></div><div id="calendarGrid" class="calendar"></div></div></div>
+<div id="team" class="view hide"><div class="card"><h3>Team approvals</h3><div id="teamTable" class="table-wrap"></div></div></div>
+</section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="app.js"></script></body></html>

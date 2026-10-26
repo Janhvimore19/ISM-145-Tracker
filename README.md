@@ -1,45 +1,28 @@
-# ISM 145 Tracker Launcher
+# ISM 145 Supabase Cloud Tracker
 
-This is a static GitHub Pages launcher. It contains no employee records, passwords, leave requests, or database.
+## What this version removes
+- No Python
+- No CMD window
+- No host laptop
+- No office IP
+- No SQLite file transfer
+- Works from any network through one GitHub Pages link
 
-## First-time configuration
+## One-time setup
+1. Create a free Supabase project.
+2. Open SQL Editor, paste all of `setup.sql`, and click Run.
+3. In Supabase Authentication settings, disable email confirmation for the easiest pilot, or leave it enabled if users can receive confirmation emails.
+4. Copy Project URL and Publishable key from Project Settings > API.
+5. Paste values into `supabase-config.js`. Never use a secret/service-role key.
+6. Upload `index.html`, `app.js`, `supabase-config.js`, and optionally this README to the GitHub Pages repository.
+7. Open the GitHub Pages link and create the first accounts.
+8. After both TLs create accounts, run the two final UPDATE lines from `setup.sql` with the real TL emails.
+9. Refresh and sign in again. TL Approvals appears for TL accounts.
 
-Edit `config.js` and replace:
+## Password reset
+The Forgot Password button sends a Supabase reset email. Add the GitHub Pages URL under Authentication > URL Configuration > Redirect URLs.
 
-- `PRIMARY-HOST-IP` with the Primary TL laptop's office IPv4 address
-- `SECONDARY-HOST-IP` with the Secondary TL laptop's office IPv4 address
-- `EMERGENCY-HOST-IP` with Janhvi's office IPv4 address
-
-Set the active host:
-
-```js
-activeHost: "primary"
-```
-
-Allowed values are `primary`, `secondary`, or `emergency`.
-
-Update the audit text:
-
-```js
-updatedBy: "Kirtan Shetty",
-updatedAt: "25 Oct 2026, 9:00 AM"
-```
-
-## When changing hosts
-
-1. Stop the old host.
-2. Move the latest `ism145.db` to the new host.
-3. Start the new host.
-4. Edit only `config.js` on GitHub.
-5. Change `activeHost` to the new host.
-6. Update `updatedBy` and `updatedAt`.
-7. Commit the change.
-
-The public GitHub Pages URL remains the same.
-
-## Important
-
-- Only one tracker host may be active at a time.
-- GitHub Pages is only the launcher, not the database or Python host.
-- Do not upload `ism145.db`, employee files, passwords, or leave data to this repository.
-- The tracker remains reachable only from networks allowed to reach the active host laptop.
+## Notes
+- New employee accounts begin with Casual Leave 14, Earned Leave 0, Maternity Leave 182. A TL balance-management module can be added next.
+- This package does not migrate the old SQLite data automatically.
+- Use the publishable key in the browser. Never upload the secret/service-role key.
